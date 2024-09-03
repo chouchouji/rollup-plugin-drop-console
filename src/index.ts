@@ -53,6 +53,7 @@ export interface RollupPluginDropConsoleOptions {
   sourceMap?: Boolean
   /**
    * The functions you want to remove which can be called by console.
+   * If the value is empty array, it will not transform any code.
    * @default ['log', 'info', 'warn']
    */
   functions?: ConsoleFunction[]

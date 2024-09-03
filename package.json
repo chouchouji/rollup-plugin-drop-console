@@ -2,16 +2,18 @@
   "name": "rollup-plugin-drop-console",
   "version": "0.0.0",
   "description": "A rollup plugin used to drop console",
+  "author": "chouchouji <1305974212@qq.com>",
+  "license": "MIT",
   "type": "module",
-  "main": "lib/index.cjs",
   "module": "lib/index.js",
+  "main": "lib/index.cjs",
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./lib/index.js",
-      "require": "./lib/index.cjs",
-      "types": "./lib/index.d.ts"
+      "require": "./lib/index.cjs"
     }
   },
   "scripts": {
@@ -28,8 +30,13 @@
     "transform",
     "console"
   ],
-  "author": "chouchouji <1305974212@qq.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chouchouji/rollup-plugin-drop-console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chouchouji/rollup-plugin-drop-console/issues"
+  },
   "dependencies": {
     "@rollup/pluginutils": "^5.1.0",
     "estree-walker": "^3.0.3",
