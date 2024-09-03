@@ -1,0 +1,9 @@
+lib/**
+node_modules/**
+
+*.md
+.github/**
+.history/**
+
+package.json
+pnpm-lock.yaml

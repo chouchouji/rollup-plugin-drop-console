@@ -1,0 +1,45 @@
+{
+  "name": "rollup-plugin-drop-console",
+  "version": "0.0.0",
+  "description": "A rollup plugin used to drop console",
+  "type": "module",
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
+    "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
+    "format": "prettier --write ."
+  },
+  "files": [
+    "lib",
+    "tsconfig.json"
+  ],
+  "keywords": [
+    "rollup-plugin",
+    "transform",
+    "console"
+  ],
+  "author": "chouchouji <1305974212@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@rollup/pluginutils": "^5.1.0",
+    "estree-walker": "^3.0.3",
+    "magic-string": "^0.30.11"
+  },
+  "devDependencies": {
+    "@varlet/release": "^0.2.11",
+    "prettier": "^3.3.3",
+    "rollup": "^4.21.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
