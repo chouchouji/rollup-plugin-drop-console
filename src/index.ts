@@ -77,6 +77,7 @@ function isConsole(name: string) {
   return name === 'console'
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function hasMatchedExpression(expression: any, functions: ConsoleFunction[]) {
   const hasMatchedFunction =
     expression.callee && expression.callee.property && functions.includes(expression.callee.property.name)
@@ -124,7 +125,7 @@ export default function dropConsolePlugin({
 
       try {
         ast = this.parse(code)
-      } catch (err: any) {
+      } catch (err: unknown) {
         this.debug({
           message: `Failed to parse code, skip ${id}`,
           cause: err,

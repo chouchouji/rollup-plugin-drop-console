@@ -20,7 +20,8 @@
     "dev": "tsup src/index.ts --format esm --out-dir=lib --watch --dts",
     "build": "tsup src/index.ts --format esm,cjs --out-dir=lib --dts --clean",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "pnpm build && npx vr release"
   },
   "files": [
     "lib",
