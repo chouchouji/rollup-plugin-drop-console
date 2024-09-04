@@ -37,6 +37,7 @@
   "bugs": {
     "url": "https://github.com/chouchouji/rollup-plugin-drop-console/issues"
   },
+  "homepage": "https://github.com/chouchouji/rollup-plugin-drop-console",
   "dependencies": {
     "@rollup/pluginutils": "^5.1.0",
     "estree-walker": "^3.0.3",

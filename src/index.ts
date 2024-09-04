@@ -1,4 +1,4 @@
-import { walk } from 'estree-walker'
+import { walk, type Node } from 'estree-walker'
 import MagicString from 'magic-string'
 import { createFilter, type FilterPattern } from '@rollup/pluginutils'
 import type { Plugin } from 'rollup'
@@ -54,7 +54,7 @@ export interface RollupPluginDropConsoleOptions {
   /**
    * The functions you want to remove which can be called by console.
    * If the value is empty array, it will not transform any code.
-   * @default ['log', 'info', 'warn']
+   * @default ['log']
    */
   functions?: ConsoleFunction[]
 }
@@ -92,7 +92,7 @@ function hasMatchedExpression(expression: any, functions: ConsoleFunction[]) {
     return true
   }
 
-  // if object is window its property is console, it indicates that the call expression is right (e.g. console.log)
+  // if object is window its property is console, it indicates that the call expression is right (e.g. window.console.log)
   return (
     expression.callee.object.object &&
     expression.callee.object.object.name === 'window' &&
@@ -135,8 +135,8 @@ export default function dropConsolePlugin({
       const magicString = new MagicString(code)
 
       walk(ast, {
-        enter(node: any) {
-          const { start, end } = node
+        enter(node) {
+          const { start, end } = node as Node & { start: number, end: number }
           if (sourceMap) {
             magicString.addSourcemapLocation(start)
             magicString.addSourcemapLocation(end)
