@@ -50,7 +50,7 @@ export interface RollupPluginDropConsoleOptions {
    * targets from the bundle.
    * @default true
    */
-  sourceMap?: Boolean
+  sourceMap?: boolean
   /**
    * The functions you want to remove which can be called by console.
    * If the value is empty array, it will not transform any code.
@@ -136,7 +136,7 @@ export default function dropConsolePlugin({
 
       walk(ast, {
         enter(node) {
-          const { start, end } = node as Node & { start: number, end: number }
+          const { start, end } = node as Node & { start: number; end: number }
           if (sourceMap) {
             magicString.addSourcemapLocation(start)
             magicString.addSourcemapLocation(end)
