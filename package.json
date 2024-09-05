@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-drop-console",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A rollup plugin used to drop (window.)console.*",
   "author": "chouchouji <1305974212@qq.com>",
   "license": "MIT",
