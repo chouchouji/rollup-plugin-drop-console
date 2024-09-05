@@ -103,13 +103,14 @@ function hasMatchedExpression(expression: any, functions: ConsoleFunction[]) {
 }
 
 export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptions): Plugin {
-  const { include, exclude, sourcemap, functions } = options ?? {
-    include: /\.(js|ts|jsx|tsx)$/,
-    exclude: /node_modules/,
-    sourcemap: true,
-    functions: ['log'],
-  }
+  const {
+    include = /\.(js|ts|jsx|tsx)$/,
+    exclude = /node_modules/,
+    sourcemap = true,
+    functions = ['log'],
+  } = options ?? {}
   const filter = createFilter(include, exclude)
+  
   return {
     name: 'rollup-plugin-drop-console',
     transform(code: string, id: string) {
