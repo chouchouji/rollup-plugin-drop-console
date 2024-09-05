@@ -12,7 +12,7 @@ pnpm add -D rollup-plugin-drop-console
 yarn add -D rollup-plugin-drop-console
 
 # npm
-npm add -D rollup-plugin-drop-console
+npm i -D rollup-plugin-drop-console
 ```
 
 ## Usage
