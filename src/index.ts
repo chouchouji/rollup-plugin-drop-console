@@ -138,9 +138,9 @@ export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptio
       const magicString = new MagicString(code)
 
       walk(ast, {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        enter(node: any) {
-          const { start, end } = node
+        enter(node) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const { start, end } = node as any
           if (sourcemap) {
             magicString.addSourcemapLocation(start)
             magicString.addSourcemapLocation(end)
