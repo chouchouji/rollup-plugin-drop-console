@@ -42,7 +42,7 @@
   "homepage": "https://github.com/chouchouji/rollup-plugin-drop-console",
   "dependencies": {
     "@rollup/pluginutils": "^5.1.0",
-    "estree-walker": "^3.0.3",
+    "estree-walker": "^2.0.2",
     "magic-string": "^0.30.11"
   },
   "devDependencies": {

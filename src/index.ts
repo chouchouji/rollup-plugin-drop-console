@@ -1,4 +1,4 @@
-import { walk, type Node } from 'estree-walker'
+import { walk } from 'estree-walker'
 import MagicString from 'magic-string'
 import { createFilter, type FilterPattern } from '@rollup/pluginutils'
 import type { Plugin } from 'rollup'
@@ -110,7 +110,7 @@ export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptio
     functions = ['log'],
   } = options ?? {}
   const filter = createFilter(include, exclude)
-  
+
   return {
     name: 'rollup-plugin-drop-console',
     transform(code: string, id: string) {
@@ -138,8 +138,9 @@ export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptio
       const magicString = new MagicString(code)
 
       walk(ast, {
-        enter(node) {
-          const { start, end } = node as Node & { start: number; end: number }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        enter(node: any) {
+          const { start, end } = node
           if (sourcemap) {
             magicString.addSourcemapLocation(start)
             magicString.addSourcemapLocation(end)
