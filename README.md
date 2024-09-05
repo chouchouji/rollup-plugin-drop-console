@@ -1,6 +1,6 @@
 # rollup-plugin-drop-console
 
-> A rollup plugin used to drop `(window).console.*` (e.g. console.log). It only processes expression. If you use console.log as a variable property or the text content of a DOM node, it will be ignored.
+> A rollup plugin used to drop `(window.)console.*` (e.g. console.log). It only processes expression. If you use console.log as a variable property or the text content of a DOM node, it will be ignored.
 
 ## Installation
 
