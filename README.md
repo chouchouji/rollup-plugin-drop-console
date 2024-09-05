@@ -90,7 +90,7 @@ export default defineConfig(({ command }) => {
 | --- | --- | --- | --- |
 | `include` | `string \| RegExp \| (string \| RegExp)[] \| undefined`  | `/\.(js\|ts\|jsx\|tsx)$/` | `files to process` |
 | `exclude` | `string \| RegExp \| (string \| RegExp)[] \| undefined`  | `/node_modules/` | `files to ignore` |
-| `sourceMap` | `boolean \| undefined`  | `true` | `whether to generate source map` |
+| `sourcemap` | `boolean \| undefined`  | `true` | `whether to generate sourcemap` |
 | `functions` | `ConsoleFunction[] \| undefined`  | `['log']` | `console functions to remove` |
 
 > **Note**: If functions is set `[]`, no any functions will be transformed.
@@ -128,7 +128,7 @@ type ConsoleFunction =
 interface RollupPluginDropConsoleOptions {
   include?: string | RegExp | (string | RegExp)[];
   exclude?: string | RegExp | (string | RegExp)[];
-  sourceMap?: boolean;
+  sourcemap?: boolean;
   functions?: ConsoleFunction[];
 }
 ```

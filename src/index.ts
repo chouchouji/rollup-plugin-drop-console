@@ -50,7 +50,7 @@ export interface RollupPluginDropConsoleOptions {
    * targets from the bundle.
    * @default true
    */
-  sourceMap?: boolean
+  sourcemap?: boolean
   /**
    * The functions you want to remove which can be called by console.
    * If the value is empty array, it will not transform any code.
@@ -103,10 +103,10 @@ function hasMatchedExpression(expression: any, functions: ConsoleFunction[]) {
 }
 
 export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptions): Plugin {
-  const { include, exclude, sourceMap, functions } = options ?? {
+  const { include, exclude, sourcemap, functions } = options ?? {
     include: /\.(js|ts|jsx|tsx)$/,
     exclude: /node_modules/,
-    sourceMap: true,
+    sourcemap: true,
     functions: ['log'],
   }
   const filter = createFilter(include, exclude)
@@ -139,7 +139,7 @@ export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptio
       walk(ast, {
         enter(node) {
           const { start, end } = node as Node & { start: number; end: number }
-          if (sourceMap) {
+          if (sourcemap) {
             magicString.addSourcemapLocation(start)
             magicString.addSourcemapLocation(end)
           }
@@ -155,7 +155,7 @@ export default function dropConsolePlugin(options?: RollupPluginDropConsoleOptio
       })
 
       code = magicString.toString()
-      const map = sourceMap ? magicString.generateMap() : null
+      const map = sourcemap ? magicString.generateMap() : null
 
       return {
         code,
